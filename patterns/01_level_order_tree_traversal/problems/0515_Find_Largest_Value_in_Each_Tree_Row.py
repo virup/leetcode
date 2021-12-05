@@ -1,10 +1,7 @@
-# 102. Binary Tree Level Order Traversal
-# https://leetcode.com/problems/binary-tree-level-order-traversal/
+# 515. Find Largest Value in Each Tree Row
+# https://leetcode.com/problems/find-largest-value-in-each-tree-row/
 #
-# This pattern performs a level order traversal of a binary tree. At
-# each level it stores the nodes of the next level in the queue. Before
-# iterating over the nodes in the next level, it keeps a record of the
-# length of the queue so that it knows when the level is done.
+# This uses the level order tree pattern.
 
 import collections
 from typing import Optional
@@ -30,6 +27,10 @@ class Solution:
         # The contains a list object with root node. The queue is list of tree nodes.
         queue = collections.deque([root])
 
+        # This is a boolean toogle variable to keep track of whether to reverse a
+        # level or not. The value is alternated for every level.
+        is_reverse = False
+
         while len(queue) > 0:
             # The queue at this point contains all the nodes at a given level.
 
@@ -52,8 +53,11 @@ class Solution:
                 # Store the node values of this level in this list
                 level.append(node.val)
 
-            # Store the node
-            output.append(level)
+            # Store the max node from all the nodes in the level
+            output.append(max(level))
+
 
         # The output contains the nodes in each level as a list object
         return output
+
+
