@@ -1,5 +1,5 @@
 # 1161. Maximum Level Sum of a Binary Tree
-# https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/
+# https://leetcode.com/problems/univalued-binary-tree/
 #
 # This uses the level order tree pattern.
 
@@ -14,26 +14,21 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def maxLevelSum(self, root: Optional[TreeNode]) -> int:
+    def isUnivalTree(self, root: TreeNode) -> bool:
+
+        uniqueVal = root.val
 
         queue = collections.deque([root])
-        maxlevelsum = float("-INF")
-        level = 0
-        maxlevel = 1
         while len(queue) > 0:
-            level = level + 1
-            numnodes = len(queue)
-            levelsum = 0
-            for i in range(0, numnodes):
+            numNodes = len(queue)
+            for i in range(0, numNodes):
                 node = queue.popleft()
+                if node.val != uniqueVal:
+                    return False
+
                 if node.left:
                     queue.append(node.left)
                 if node.right:
                     queue.append(node.right)
-                levelsum = levelsum + node.val
 
-            if levelsum > maxlevelsum:
-                maxlevelsum = levelsum
-                maxlevel = level
-
-        return maxlevel
+        return True
