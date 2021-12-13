@@ -51,4 +51,3 @@ class Solution:
                 return px is not None and py is not None and px != py
 
         return False
-
