@@ -3,7 +3,6 @@
 
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-
         # Set the pointers of the sliding window
         windowStart = 0
         windowEnd = 0
