@@ -22,7 +22,8 @@
 # 8. In the recursion we never check if the node is null. Instead we check if the node is leaf node
 #    checking if the node.left is None and node.right is None. This is to make sure that we handle
 #    the leaf node seperately. For example in this question we want to know if the node is leaf node.
-
+#
+# Note that any problem that can be solved with top down DFS can also be solved with BFS.
 # Definition for a binary tree node.
 
 import collections
