@@ -7,7 +7,7 @@
 #
 # 2. Define a dfs inner function. This is the recursive function.
 #
-# 3. If the node under action is leaf node, small the problem for leaf node and exit. Do not run
+# 3. If the node under action is leaf node, solve the problem for leaf node and exit. Do not run
 #    dfs on null cases.
 #
 # 4. If the left subtree is not null, call the dfs on the left subtree.
