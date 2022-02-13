@@ -4,7 +4,7 @@
 # the given sequence.
 # The next permutation can be found using the following steps:
 #
-# 1. Starting the the right end, find the first decreasing element (DE). The index of this positions
+# 1. Starting at the right end, find the first decreasing element (DE). The index of this positions
 #    is called DecreasingElementIndex (DEIndex)
 #
 # 2. Starting from the DE, find the number on the right of DE which is just
