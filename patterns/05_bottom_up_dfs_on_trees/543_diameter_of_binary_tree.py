@@ -12,7 +12,7 @@
 # Return both height and diameter as a tuple.
 #
 # The tricky part here is
-# Height is calculated as function of number of nodes in the path.
+# Height is calculated as function of number of nodes in the path.  
 # Diameter is calcluated as edges length.
 #
 # 1. For null node, return height and diameter as zero since there are zero nodes and zero edges.
