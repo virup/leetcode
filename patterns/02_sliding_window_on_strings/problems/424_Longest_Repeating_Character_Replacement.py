@@ -1,6 +1,8 @@
 # 424. Longest Repeating Character Replacement
 # https://leetcode.com/problems/longest-repeating-character-replacement/
-
+#
+# The time complexity for this is O(26N). We need to execute this allMoreThanK atleast n times.
+# Each time we need to iterate the entire hash map.
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         # Set the pointers of the sliding window

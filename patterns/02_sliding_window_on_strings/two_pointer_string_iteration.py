@@ -39,6 +39,8 @@ class Solution:
                 slidingWindow.remove(s[windowStart])
                 windowStart += 1
 
+            # At this point ch is completely removed from the sliding window if it exists.
+
             # Add the new character to the window
             slidingWindow.add(ch)
             maxCount = max(maxCount, windowEnd - windowStart + 1)
