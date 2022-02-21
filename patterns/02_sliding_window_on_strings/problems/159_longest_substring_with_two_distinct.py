@@ -1,40 +1,49 @@
+# 30. Substring with Concatenation of All Words.
+# https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/submissions/
+#
+# Pattern:
+# This problem uses the sliding window pattern.
 class Solution:
     def lengthOfLongestSubstringTwoDistinct(self, s: str) -> int:
 
-        # Set the pointers of the sliding window
         windowStart = 0
         windowEnd = 0
 
-        # Create the window
-        slidingWindow = {}
+        charCountMap = {}
+        maxLen = 0
 
-        # Store the results
-        maxCount = 0
-
-        # Iterate over the string
         while windowEnd < len(s):
 
-            # Extract the character at windowEnd to check
+            # Get the new character at the window end. This is the newly added char in sliding window.
             ch = s[windowEnd]
 
-            if ch in slidingWindow:
-                slidingWindow[ch] += 1
+            # Check if this character is present in the current charCountMap.
+            if ch in charCountMap:
+                charCountMap[ch] += 1
             else:
-                slidingWindow[ch] = 1
+                # If it is not present
+                charCountMap[ch] = 1
 
-            # check to satisfy the condition. In this
-            # the number of distinct characters should not
-            # be more than 2.
-            while len(slidingWindow) > 2 and windowStart < windowEnd:
-                removeCh = s[windowStart]
-                slidingWindow[removeCh] -= 1
-                if slidingWindow[removeCh] == 0:
-                    del slidingWindow[removeCh]
+            # There should be atleast 2 characters in the count map. This will transalte to atleast 2 unique
+            while len(charCountMap) > 2 and windowStart < windowEnd:
+
+                # This means, we can remove the character from the beginning of the sliding window. This is
+                # in effort to keep the numberof uniqe characters in the sliding window to atmost 2.
+                sc = s[windowStart]
+                charCountMap[sc] -= 1
+
+                # Delete the character in the hash map that has no counts. This will make
+                # ch in charCountMap easy above  and len(charCountMap) > 2
+                if charCountMap[sc] == 0:
+                    del charCountMap[sc]
+
+                # Move the window start to left by 1. Continue doing this process until the sliding window has atmost
+                # 2 unique characters.
                 windowStart += 1
 
-            maxCount = max(maxCount, windowEnd - windowStart + 1)
+            maxLen = max(maxLen, windowEnd - windowStart + 1)
 
-            # update the windowEnd
+            # Increase the sliding window length by 1.
             windowEnd += 1
 
-        return maxCount
+        return maxLen
