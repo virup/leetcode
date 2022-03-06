@@ -1,4 +1,4 @@
-# 30. Substring with Concatenation of All Words.
+# 159. Substring with Concatenation of All Words.
 # https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/submissions/
 #
 # Pattern:
