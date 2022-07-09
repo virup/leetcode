@@ -17,16 +17,19 @@ class Solution:
         allSchedules = []
 
         # Create a flattened list containing all the busy schedules
+        # Time complexity: O(n)
         for ss in schedule:
             for s in ss:
                 allSchedules.append(s)
 
         # Sort all the busy schedules based on the start times
+        # Time complexity: O(nlogn)
         sortedSchedule = sorted(allSchedules, key=lambda x: x.start)
 
         temp = sortedSchedule[0]
         result = []
 
+        # Time complexity: O(n)
         for s in sortedSchedule:
             # check if the schedule overlaps with the previous one
             if temp.end < s.start:
